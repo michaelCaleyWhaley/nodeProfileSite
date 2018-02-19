@@ -1,0 +1,117 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.centre {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.head-wrap {
+    position: absolute;
+    width: 100%;
+    display: block;
+    background-color: #ffffff;
+    padding: 1% 1%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.head-wrap h1 {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    display: inline-block;
+}
+
+.head-wrap ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.head-wrap li {
+    display: inline-block;
+    color: black;
+    margin: 0 0.2em;
+}
+.head-wrap li a {
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+    transition: color 0.1s linear, border 0.1s linear;
+}
+.head-wrap li a:visited {
+    color: black;
+    text-decoration: none;
+}
+.head-wrap li a:hover {
+    color: #2AAACE;
+    border-bottom: 1px solid #2AAACE;
+}
+
+
+
+/* index */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px);
+    background-image: url('/img/mountain.jpg');
+    background-size: cover;
+    animation: blur 5s forwards;
+}
+@keyframes blur {
+    0% {filter: blur(1px);}
+    100% {filter: blur(3px);}
+}
+.hero h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: white;
+    margin: 0;
+}
+
+.hero .chevron {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('/img/chevron_down.png');
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+    filter: invert(1);
+    background-color: rgba(1,1,1,0.2);
+    border-radius: 5px;
+}
+
+/* Footer */
+
+footer p {
+    text-align: center;
+}
