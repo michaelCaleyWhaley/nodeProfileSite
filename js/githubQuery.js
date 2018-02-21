@@ -6,7 +6,7 @@ var options = {
         'User-Agent': 'michaelCaleyWhaley'
     },
     username: 'michaelCaleyWhaley',
-    password: ''
+    password: '**'
 };
 
 var githubPromise = new Promise((resolve, reject) => {
