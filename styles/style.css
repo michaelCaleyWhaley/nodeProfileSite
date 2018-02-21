@@ -110,6 +110,17 @@ body {
     border-radius: 5px;
 }
 
+.work-area {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.work-title {
+    display: inline-block;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
 /* Footer */
 
 footer p {
