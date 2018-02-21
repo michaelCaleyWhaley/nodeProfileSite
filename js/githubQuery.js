@@ -1,29 +1,24 @@
-var request = require('request');
-
-var options = {
-    url: 'https://api.github.com/users/michaelCaleyWhaley/repos',
-    headers: {
-        'User-Agent': 'michaelCaleyWhaley'
-    },
-    username: 'michaelCaleyWhaley',
-    password: '**'
-};
-
-var githubPromise = new Promise((resolve, reject) => {
-    request(options, (error, response, body) => {
-        if (response.headers.status === '200 OK') {
-            resolve(body);
+var workArea = document.querySelector('.work-area');
+function requestGithubData() {
+    var myRequest = new XMLHttpRequest();
+    myRequest.open('GET', 'https://api.github.com/users/michaelCaleyWhaley/repos', true);
+    myRequest.onreadystatechange = function () {
+        console.log(myRequest);
+        if (myRequest.readyState === XMLHttpRequest.DONE && myRequest.status === 200) {
+            var info = JSON.parse(myRequest.responseText);
+            var newElement = '<div class="github-grid">';
+            info.map((item, index, array) => {
+                newElement += '<div class="github-item">';
+                newElement += '<h4>' + item.name + '</h4>';
+                newElement += '<p>' + item.description + '</p>';
+                newElement += '</div>';
+            });
+            newElement += '</div>';
+            workArea.innerHTML = newElement;
         }
-    });
-});
-
-module.exports = {
-    githubPromise
-};
-
-
-
-
-
-
-
+    };
+    myRequest.send();
+}
+if (workArea) {
+    requestGithubData();
+}
