@@ -4,6 +4,9 @@ const hbs = require('hbs');
 const app = express();
 app.set('view engine', 'html');
 
+// heroku env variable or local port if not on heroku
+const port = process.env.PORT || 3000;
+
 app.use("/styles", express.static(__dirname + "/styles"));
 app.use("/img", express.static(__dirname + "/img"));
 // app.use("/js", express.static(__dirname + "/js"));
@@ -54,4 +57,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(8080);
+app.listen(port, () => {
+    console.log(`Running on port ${port}`);
+});
